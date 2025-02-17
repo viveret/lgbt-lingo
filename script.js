@@ -13,9 +13,9 @@ fetch(WORDS_URL)
       wordList.innerHTML = ''; // Clear the list
       words.forEach(word => {
         const li = document.createElement('li');
-        li.innerHTML = `<strong>${word.word}</strong>: ${word.description}`;
+        li.innerHTML = `<strong>${word.name}</strong>: ${word.desc_short}`;
         li.addEventListener('click', () => {
-          window.location.href = `word.html?word=${encodeURIComponent(word.word)}`;
+          window.location.href = `word.html?word=${encodeURIComponent(word.name)}`;
         });
         wordList.appendChild(li);
       });
@@ -28,8 +28,8 @@ fetch(WORDS_URL)
     searchBox.addEventListener('input', () => {
       const searchTerm = searchBox.value.toLowerCase();
       const filteredWords = data.filter(word => 
-        word.word.toLowerCase().includes(searchTerm) || 
-        word.description.toLowerCase().includes(searchTerm)
+        word.name.toLowerCase().includes(searchTerm) || 
+        word.desc_short.toLowerCase().includes(searchTerm)
       );
       displayWords(filteredWords);
     });

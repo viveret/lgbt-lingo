@@ -10,6 +10,12 @@
   <div class="container">
     <h1 id="wordTitle"></h1>
     <p id="wordDefinition"></p>
+    <ul>
+      <li>Credit: <a id="wordCredit"></a></li>
+      <li>Category: <span id="wordCategory"></span></li>
+      <li>Is slur? <span id="wordIsSlur"></span></li>
+      <li>Last update: <span id="wordLastUpdate"></span></li>
+    </p>
     <a href="index.html">Back to Word List</a>
   </div>
 
@@ -22,10 +28,14 @@
     fetch('words.json') // https://viveret.github.io/lgbt-lingo/
       .then(response => response.json())
       .then(data => {
-        const wordData = data.find(item => item.word === word);
+        const wordData = data.find(item => item.name === word);
         if (wordData) {
-          document.getElementById('wordTitle').textContent = wordData.word;
-          document.getElementById('wordDefinition').textContent = wordData.definition;
+          document.getElementById('wordTitle').textContent = wordData.name;
+          document.getElementById('wordDefinition').textContent = wordData.desc_long;
+          document.getElementById('wordCredit').textContent = wordData.credit;
+          document.getElementById('wordCategory').textContent = wordData.category;
+          document.getElementById('wordIsSlur').textContent = wordData.is_slur;
+          document.getElementById('wordLastUpdate').textContent = wordData.last_update;
         } else {
           document.getElementById('wordTitle').textContent = 'Word not found';
         }
