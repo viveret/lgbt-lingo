@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LGBT Lingo Word Definition</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1 id="wordTitle"></h1>
+    <p id="wordDefinition"></p>
+    <a href="index.html">Back to Word List</a>
+  </div>
+
+  <script>
+    // Extract the word from the URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const word = urlParams.get('word');
+
+    // Fetch the JSON data
+    fetch('words.json') // https://viveret.github.io/lgbt-lingo/
+      .then(response => response.json())
+      .then(data => {
+        const wordData = data.find(item => item.word === word);
+        if (wordData) {
+          document.getElementById('wordTitle').textContent = wordData.word;
+          document.getElementById('wordDefinition').textContent = wordData.definition;
+        } else {
+          document.getElementById('wordTitle').textContent = 'Word not found';
+        }
+      })
+      .catch(error => console.error('Error fetching word data:', error));
+  </script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[
+    {
+      "word": "apple",
+      "description": "A fruit that is typically red or green.",
+      "definition": "A round fruit with red, green, or yellow skin and a white inside."
+    },
+    {
+      "word": "banana",
+      "description": "A long, yellow fruit.",
+      "definition": "A long, curved fruit with a thick yellow skin and soft, sweet flesh."
+    },
+    {
+      "word": "cherry",
+      "description": "A small, round, red fruit.",
+      "definition": "A small, round fruit that is typically bright or dark red."
+    }
+  ]
