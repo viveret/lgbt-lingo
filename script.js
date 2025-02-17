@@ -21,13 +21,16 @@ fetch(WORDS_URL)
       });
     };
 
+    // Sort the word list by word name
+    const sortedWords = data.sort((a, b) => a.word.localeCompare(b.word));
+
     // Display all words initially
-    displayWords(data);
+    displayWords(sortedWords);
 
     // Add search functionality
     searchBox.addEventListener('input', () => {
       const searchTerm = searchBox.value.toLowerCase();
-      const filteredWords = data.filter(word => 
+      const filteredWords = sortedWords.filter(word => 
         word.name.toLowerCase().includes(searchTerm) || 
         word.desc_short.toLowerCase().includes(searchTerm)
       );
