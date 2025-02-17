@@ -22,7 +22,7 @@ fetch(WORDS_URL)
     };
 
     // Sort the word list by word name
-    const sortedWords = data.sort((a, b) => a.word.localeCompare(b.word));
+    const sortedWords = data.sort((a, b) => a.name.localeCompare(b.name));
 
     // Display all words initially
     displayWords(sortedWords);
